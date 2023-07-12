@@ -1,5 +1,8 @@
+import { useParams } from 'react-router-dom';
+
 const IssueDetailPage = () => {
-  return <div>이슈디테일</div>;
+  const { id } = useParams();
+  return <div>이슈디테일{id}</div>;
 };
 
 export default IssueDetailPage;

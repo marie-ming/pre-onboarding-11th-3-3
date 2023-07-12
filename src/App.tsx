@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import GlobalStyle from 'GlobalStyle';
 import { GetIssues } from 'apis/issues';
+import { useIssue } from 'context/IssueContext';
 
 export async function loader() {
   const issues = await GetIssues();
@@ -9,7 +11,12 @@ export async function loader() {
 
 function App() {
   const { issues }: any = useLoaderData();
-  console.log(issues);
+  const { saveIssues } = useIssue();
+
+  useEffect(() => {
+    saveIssues(issues);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
