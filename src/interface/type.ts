@@ -4,4 +4,6 @@ export interface IssueType {
   userName: string;
   updated_at: string;
   comments: number;
+  avatar_url: string;
+  body: string;
 }

@@ -11,7 +11,14 @@ const IssueDetailPage = () => {
   return (
     <div>
       이슈디테일
+      <img
+        src={issueDetail[0].avatar_url}
+        alt="avatar"
+        width={50}
+        height={50}
+      />
       <IssueTitle {...issueDetail[0]} />
+      <div>{issueDetail[0].body}</div>
     </div>
   );
 };

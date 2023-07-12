@@ -16,6 +16,8 @@ export function IssueProvider({ children }: { children: React.ReactNode }) {
           userName: item.user.login,
           updated_at: item.updated_at,
           comments: item.comments,
+          avatar_url: item.user.avatar_url,
+          body: item.body,
         },
       ])
     );
