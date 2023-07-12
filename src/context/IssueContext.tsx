@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import { IssueType } from 'interface/type';
 
 const IssueContext = createContext<ProviderType | undefined>(undefined);
 
@@ -33,13 +34,6 @@ export const useIssue = () => {
   return state;
 };
 
-interface IssueType {
-  number: number;
-  title: string;
-  userName: string;
-  updated_at: string;
-  comments: number;
-}
 interface ProviderType {
   list: IssueType[];
   saveIssues: (issues: any) => void;
