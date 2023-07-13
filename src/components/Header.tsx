@@ -1,7 +1,11 @@
-import React from 'react';
+import { ORGANIZATION, REPOSITORY } from 'apis/instance';
 
 const Header = () => {
-  return <div>facebook/react</div>;
+  return (
+    <div>
+      {ORGANIZATION}/{REPOSITORY}
+    </div>
+  );
 };
 
 export default Header;
