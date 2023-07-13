@@ -76,11 +76,13 @@ const IssuesPage = () => {
               list.filter((listItem: any) => listItem.number === item.number)[0]
             )
           }
+          style={{ display: 'flex', margin: '1rem' }}
         >
           {(idx + 1) % 5 === 0 ? (
             <img
               src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"
               alt="광고"
+              style={{ padding: '1rem' }}
             />
           ) : (
             <IssueTitle {...item} />
