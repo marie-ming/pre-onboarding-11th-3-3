@@ -39,7 +39,7 @@ const TitleStyle = styled.div`
   }
   .comments {
     font-size: 0.9rem;
-    text-wrap: nowrap;
+    white-space: nowrap;
   }
 `;
 
