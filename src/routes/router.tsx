@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import App, { loader as rootLoader } from 'App';
+import App from 'App';
 import ErrorPage from 'pages/ErrorPage';
 import LoadingPage from 'pages/LoadingPage';
 
@@ -16,7 +16,6 @@ const router = createBrowserRouter([
       </Suspense>
     ),
     errorElement: <ErrorPage />,
-    loader: rootLoader,
     children: [
       {
         index: true,
