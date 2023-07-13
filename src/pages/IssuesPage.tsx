@@ -8,10 +8,10 @@ const IssuesPage = () => {
   const { list, setList } = useIssue();
   const [page, setPage] = useState(1);
 
-  const getIssue = async (page: string) => {
+  const getIssue = async (page: number) => {
     setIsLoading(true);
     try {
-      const response = await GetIssues(page);
+      const response = await GetIssues({ page, sort: 'comments' });
       response.map((item: any) =>
         setList(prev => [
           ...prev,
@@ -57,7 +57,7 @@ const IssuesPage = () => {
   }, []);
 
   useEffect(() => {
-    getIssue(page.toString());
+    getIssue(page);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 

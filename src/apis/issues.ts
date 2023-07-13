@@ -1,6 +1,14 @@
 import { axiosInstance } from './instance';
 
-export const GetIssues = async (page: string) => {
-  const response = await axiosInstance({ method: 'GET', params: { page } });
+interface getIssueType {
+  page: number;
+  sort: string;
+}
+
+export const GetIssues = async ({ page, sort }: getIssueType) => {
+  const response = await axiosInstance({
+    method: 'GET',
+    params: { page, sort },
+  });
   return response.data;
 };
