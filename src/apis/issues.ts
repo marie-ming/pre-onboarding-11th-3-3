@@ -1,6 +1,6 @@
 import { axiosInstance } from './instance';
 
-export const GetIssues = async () => {
-  const response = await axiosInstance.get('');
+export const GetIssues = async (page: string) => {
+  const response = await axiosInstance({ method: 'GET', params: { page } });
   return response.data;
 };
