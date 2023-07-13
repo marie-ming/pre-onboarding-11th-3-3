@@ -65,17 +65,26 @@ const IssuesPage = () => {
 
   return (
     <div>
-      {list.map((item: any) => (
+      {list.map((item: any, idx: number) => (
         <Link
-          to={`${item.number}`}
-          key={item.number}
+          to={
+            (idx + 1) % 5 === 0 ? 'https://www.wanted.co.kr/' : `${item.number}`
+          }
+          key={idx}
           onClick={() =>
             setAnIssue(
               list.filter((listItem: any) => listItem.number === item.number)[0]
             )
           }
         >
-          <IssueTitle {...item} />
+          {(idx + 1) % 5 === 0 ? (
+            <img
+              src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"
+              alt="광고"
+            />
+          ) : (
+            <IssueTitle {...item} />
+          )}
         </Link>
       ))}
       <div ref={obsRef} />
