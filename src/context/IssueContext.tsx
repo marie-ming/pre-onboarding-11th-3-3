@@ -4,10 +4,18 @@ import { IssueType } from 'interface/type';
 const IssueContext = createContext<ProviderType | undefined>(undefined);
 
 export function IssueProvider({ children }: { children: React.ReactNode }) {
-  const [list, setList] = useState<IssueType[]>([]);
+  const [anIssue, setAnIssue] = useState<IssueType>({
+    number: 0,
+    title: '',
+    userName: '',
+    updated_at: '',
+    comments: 0,
+    avatar_url: '',
+    body: '',
+  });
 
   return (
-    <IssueContext.Provider value={{ list, setList }}>
+    <IssueContext.Provider value={{ anIssue, setAnIssue }}>
       {children}
     </IssueContext.Provider>
   );
@@ -20,6 +28,6 @@ export const useIssue = () => {
 };
 
 interface ProviderType {
-  list: IssueType[];
-  setList: React.Dispatch<React.SetStateAction<IssueType[]>>;
+  anIssue: IssueType;
+  setAnIssue: React.Dispatch<React.SetStateAction<IssueType>>;
 }

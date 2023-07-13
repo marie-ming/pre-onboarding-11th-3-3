@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { GetIssues } from 'apis/issues';
 import { useIssue } from 'context/IssueContext';
 import IssueTitle from 'components/IssueTitle';
+import { IssueType } from 'interface/type';
 
 const IssuesPage = () => {
-  const { list, setList } = useIssue();
+  const { setAnIssue } = useIssue();
+  const [list, setList] = useState<IssueType[]>([]);
   const [page, setPage] = useState(1);
 
   const getIssue = async (page: number) => {
@@ -64,7 +66,15 @@ const IssuesPage = () => {
   return (
     <div>
       {list.map((item: any) => (
-        <Link to={`${item.number}`} key={item.number}>
+        <Link
+          to={`${item.number}`}
+          key={item.number}
+          onClick={() =>
+            setAnIssue(
+              list.filter((listItem: any) => listItem.number === item.number)[0]
+            )
+          }
+        >
           <IssueTitle {...item} />
         </Link>
       ))}

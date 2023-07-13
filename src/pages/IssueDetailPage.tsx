@@ -1,24 +1,15 @@
-import { useParams } from 'react-router-dom';
 import { useIssue } from 'context/IssueContext';
 import IssueTitle from 'components/IssueTitle';
 
 const IssueDetailPage = () => {
-  const { id } = useParams();
-  const { list } = useIssue();
-
-  const issueDetail = list.filter((item: any) => item.number === Number(id));
+  const { anIssue } = useIssue();
 
   return (
     <div>
       이슈디테일
-      <img
-        src={issueDetail[0].avatar_url}
-        alt="avatar"
-        width={50}
-        height={50}
-      />
-      <IssueTitle {...issueDetail[0]} />
-      <div>{issueDetail[0].body}</div>
+      <img src={anIssue.avatar_url} alt="avatar" width={50} height={50} />
+      <IssueTitle {...anIssue} />
+      <div>{anIssue.body}</div>
     </div>
   );
 };
