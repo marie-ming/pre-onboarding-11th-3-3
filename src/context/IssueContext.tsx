@@ -6,25 +6,8 @@ const IssueContext = createContext<ProviderType | undefined>(undefined);
 export function IssueProvider({ children }: { children: React.ReactNode }) {
   const [list, setList] = useState<IssueType[]>([]);
 
-  const saveIssues = (issues: any) => {
-    issues.map((item: any) =>
-      setList(prev => [
-        ...prev,
-        {
-          number: item.number,
-          title: item.title,
-          userName: item.user.login,
-          updated_at: item.updated_at,
-          comments: item.comments,
-          avatar_url: item.user.avatar_url,
-          body: item.body,
-        },
-      ])
-    );
-  };
-
   return (
-    <IssueContext.Provider value={{ list, saveIssues }}>
+    <IssueContext.Provider value={{ list, setList }}>
       {children}
     </IssueContext.Provider>
   );
@@ -38,5 +21,5 @@ export const useIssue = () => {
 
 interface ProviderType {
   list: IssueType[];
-  saveIssues: (issues: any) => void;
+  setList: React.Dispatch<React.SetStateAction<IssueType[]>>;
 }

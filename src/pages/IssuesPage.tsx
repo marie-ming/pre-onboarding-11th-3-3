@@ -5,14 +5,27 @@ import { useIssue } from 'context/IssueContext';
 import IssueTitle from 'components/IssueTitle';
 
 const IssuesPage = () => {
-  const { list, saveIssues } = useIssue();
+  const { list, setList } = useIssue();
   const [page, setPage] = useState(1);
 
   const getIssue = async (page: string) => {
     setIsLoading(true);
     try {
       const response = await GetIssues(page);
-      saveIssues(response);
+      response.map((item: any) =>
+        setList(prev => [
+          ...prev,
+          {
+            number: item.number,
+            title: item.title,
+            userName: item.user.login,
+            updated_at: item.updated_at,
+            comments: item.comments,
+            avatar_url: item.user.avatar_url,
+            body: item.body,
+          },
+        ])
+      );
       preventRef.current = true;
 
       return response;
@@ -38,6 +51,8 @@ const IssuesPage = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(callback, options);
     if (obsRef.current) observer.observe(obsRef.current);
+
+    setList([]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
