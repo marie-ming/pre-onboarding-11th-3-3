@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+# Team3 - GitHub Issue Web Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/>
 
-## Available Scripts
+## 🗓️ 기간
 
-In the project directory, you can run:
+- 2023년 7월 11일 ~ 2023년 07월 14일
 
-### `npm start`
+## 🧭 목적
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 동료학습 및 협업능력과 새로운 인사이트
+- [GitHub REST API](https://docs.github.com/en/rest)로 GitHub Issue 페이지 구현하기
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br/>
 
-### `npm test`
+## ✅ Task
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ❗필수 요구 사항
 
-### `npm run build`
+- [x] 이슈 목록 및 상세 화면 기능 구현
+- [x] Context API를 활용한 API 연동
+- [x] 데이터 요청 중 로딩 표시
+- [x] 에러 화면 구현
+- [x] 지정된 조건(open 상태, 코멘트 많은 순)에 맞게 데이터 요청 및 표시
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ❗범위
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. 이슈 목록 화면
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   - [x] 이슈 목록 가져오기 API 활용
+   - [x] open 상태의 이슈 중 코멘트가 많은 순으로 정렬
+   - [x] 각 행에는 ‘이슈번호, 이슈제목, 작성자, 작성일, 코멘트수’를 표시
+   - [x] 다섯번째 셀마다 광고 이미지 출력
+   - [x] 화면을 아래로 스크롤 할 시 이슈 목록 추가 로딩(인피니티 스크롤)
 
-### `npm run eject`
+2. 이슈 상세 화면
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   - [x] 이슈의 상세 내용 표시
+   - [x] ‘이슈번호, 이슈제목, 작성자, 작성일, 코멘트 수, 작성자 프로필 이미지, 본문' 표시
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. 공통 헤더
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+   - [x] 두 페이지는 공통 헤더를 공유합니다.
+   - [x] 헤더에는 Organization Name / Repository Name이 표시됩니다.
